@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Yichen Han">
+<meta name="dcterms.date" content="2023-11-30">
+
+<title>6. Statistische Grafiken</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Stat1_Ue6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Stat1_Ue6_files/libs/quarto-html/quarto.js"></script>
+<script src="Stat1_Ue6_files/libs/quarto-html/popper.min.js"></script>
+<script src="Stat1_Ue6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Stat1_Ue6_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Stat1_Ue6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Stat1_Ue6_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Stat1_Ue6_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Stat1_Ue6_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Stat1_Ue6_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">6. Statistische Grafiken</h1>
+<p class="subtitle lead">Übung für Deskriptive Statistik</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yichen Han </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 30, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="code-austausch" class="level2">
+<h2 class="anchored" data-anchor-id="code-austausch">Code Austausch</h2>
+<p>Es gibt noch die Zeit, eure Codes für Aufgabe 2 hochzuladen, damit sie präsentiert werden!</p>
+<p>Seht bitte die Ankündigung auf Moodle.</p>
+</section>
+<section id="lösung-aufgabe-2-blatt-5-in-latex" class="level2">
+<h2 class="anchored" data-anchor-id="lösung-aufgabe-2-blatt-5-in-latex">Lösung Aufgabe 2 Blatt 5 in Latex</h2>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ue2b5.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Lösung in Latex</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="schlüsselfähigkeiten" class="level2">
+<h2 class="anchored" data-anchor-id="schlüsselfähigkeiten">Schlüsselfähigkeiten</h2>
+<ul>
+<li><p>Verteilungsfunktion und Dichte: fortgeschritten (Aufgabe 1)</p></li>
+<li><p>Format der statistischen Grafiken kennenlernen und interpretieren (Aufgabe 4)</p></li>
+<li><p>Format der statistischen Grafiken kritisch analysieren und das Design verbessern (Aufgabe 3)</p></li>
+<li><p>Statistische Grafiken: selbständige Anwendung unter realen Szenarien mit R-Programmierung (Aufgabe 2)</p></li>
+</ul>
+</section>
+<section id="zusammenfassung" class="level2">
+<h2 class="anchored" data-anchor-id="zusammenfassung">Zusammenfassung</h2>
+<ul>
+<li><p>Grammar of Graphics</p>
+<ul>
+<li><p>Geometrien: Linie, Balken, Punkte, Fläche, etc.</p></li>
+<li><p>Ästhetische Zuordnungen: Farbe, Größe, Form, Position, etc.</p></li>
+<li><p>Skalen: lineare Skala, log-Skala, etc.</p></li>
+<li><p>Koordinatensysteme: kartesisches Koordinatensystem, Polarkoordinatensystem, etc.</p></li>
+<li><p>Facetten: Aufteilung der Grafik in mehrere Panels</p></li>
+<li><p>etc. (sehr fortgeschritten)</p></li>
+</ul></li>
+<li><p>Farbskalen</p>
+<ul>
+<li><p>Qualitative Farbskala: Farben ohne Ordnung</p></li>
+<li><p>Sequentielle Farbskala: Farben mit Ordnung</p></li>
+<li><p>Divergierende Farbskala: Farben mit Ordnung und Mittelwert / Neutralpunkt</p></li>
+</ul></li>
+<li><p>Hierarchie der Wahrnehmung</p>
+<ul>
+<li><p>Position</p></li>
+<li><p>Abstand &amp; Länge</p></li>
+<li><p>Steigung &amp; Winkel</p></li>
+<li><p>Fläche</p></li>
+<li><p>Volumen</p></li>
+<li><p>Farben</p></li>
+</ul></li>
+<li><p>Gelernte Grafiken</p>
+<ul>
+<li><p>Mosaikplot</p></li>
+<li><p>Histogramm</p></li>
+<li><p>Streudiagramm</p></li>
+<li><p>Liniendiagramm</p></li>
+<li><p>Balkendiagramm / Säulendiagramm / Stapeldiagramm</p></li>
+<li><p>Kreisdiagramm (immer vermeiden)</p></li>
+<li><p>etc.</p></li>
+</ul></li>
+<li><p>Kerndichteschätzer (KDE)</p>
+<ul>
+<li><p>Motivation: Histogramm ist abhängig von der Anzahl der Bins bzw. Kantenlänge der Bins.</p></li>
+<li><p>Lösung: Ersetze Histogramm durch glatte Funktion <span class="math inline">\(f\)</span>.</p></li>
+<li><p>Kerndichteschätzer: <span class="math inline">\(K\)</span> für Kernfunktion, <span class="math inline">\(h\)</span> für Bandbreite.</p></li>
+</ul>
+<p><span class="math display">\[\hat{f}(x) = \frac{1}{nh}\sum_{i=1}^{n}K(\frac{x-x_i}{h})\]</span></p>
+<ul>
+<li><p>Weitere Vorteile: Berücksichtigung der Entfernung der beobachtenen Werte mit abnehmender Gewichtung.</p></li>
+<li><p>Abhängigkeit von <span class="math inline">\(h\)</span>: zu klein <span class="math inline">\(\Rightarrow\)</span> zu viele Details, zu groß <span class="math inline">\(\Rightarrow\)</span> zu wenig Details. (Goodness of fit / Anpassungsgüte)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="aufgabe-1" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
+<p><span class="math display">\[f(x) = a\frac{x^3-x^2+x-1}{x-1}\mathbb{I}_{[2,5]}(x)\]</span> <em>Hinweis:</em> Vereinfachen Sie zuerst den Ausdruck der Dichte. <span class="math display">\[
+\begin{align*}
+&amp; \ x^3-x^2+x-1 = (x-1)(x^2+1) \\
+&amp; \ \Rightarrow f(x) = a(x^2+1)\mathbb{I}_{[2,5]}(x)
+\end{align*}
+\]</span> <strong>(a) Bestimmen Sie den Wert von <span class="math inline">\(a\)</span>.</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+\int_{\mathbb R} f(x) dx &amp; \ = \int_{2}^{5}a(x^2+1)dx \\
+&amp; \ = a \left[\frac{x^3}{3}+x\right]_2^5 \\
+a(\frac{140}{3}-\frac{14}{3}) &amp; \ \overset{!}{=} 1 \\
+\Rightarrow a &amp;\ =\frac{1}{42} \\
+\text{Es gilt: } x^2+1 \geq 1 \ \forall x \in \mathbb R,&amp; \ \text{ also } f(x) \geq 0 \  \forall x \in \mathbb R \text{ mit } a = \frac{1}{42}
+\end{align*}
+\]</span></p>
+<p><strong>(b) Bestimmen Sie die Verteilungsfunktion <span class="math inline">\(F(x)\)</span>.</strong></p>
+<p>Warum “fortgeschritten”?</p>
+<p>Das gängige Vorgehen: Dichte integrieren und mit passenden Indikatorfunktionen modifizieren.</p>
+<p>Hier: <span class="math display">\[G(x) := \int_{2}^{x}\frac{1}{42}(x^2+1)dx, \ G(2) \neq 0\]</span></p>
+<p>Deswegen brauchen wir eine Konstante <span class="math inline">\(c\)</span>, sodass <span class="math inline">\(G(2) + c = 0\)</span>.</p>
+<p>Wir lösen die Gleichung, und erhalten <span class="math inline">\(c = -\frac{1}{9}\)</span>.</p>
+<p><span class="math display">\[F(x) = \left(\frac{1}{42}(\frac{x^3}{3}+x)-\frac{1}{9}\right)\mathbb I_{[2,5]}(x) + \mathbb I_{]5,\infty[}(x)\]</span></p>
+<p><strong>(c) Berechnen Sie <span class="math inline">\(P(3&lt;X&lt;4)\)</span>.</strong></p>
+<p><span class="math display">\[P(3&lt;X&lt;4) \overset{\text{stetig}}{=} P(3\leq X\leq 4) = F(4)-F(3) =0.3175\]</span></p>
+</section>
+<section id="aufgabe-4" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-4">Aufgabe 4</h2>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="stat-grammargraphics-fertility-gini.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Weltbevölkerung und Fruchtbarkeitsniveau über die Zeit</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>(a) Welche Untersuchungseinheiten aus welcher Grundgesamtheit werden in der Grafik dargestellt?</strong></p>
+<ul>
+<li><p>GG: Länder der Erde</p></li>
+<li><p>UE: einzelne Länder</p></li>
+</ul>
+<p><strong>(b) Was für eine Erhebungsart und Datenstruktur liegen hier vor?</strong></p>
+<p>Erhebungsart:</p>
+<ul>
+<li><p>Vollerhebung,</p></li>
+<li><p>Längsschnittdaten (mehrere Beobachtungen mit mehreren Merkmalen pro UE.)</p></li>
+</ul>
+<p><strong>(c) Welches Skalenniveau haben Gesamtfruchtbarkeitsrate und Bevölkerungsanteil jeweils?</strong></p>
+<ul>
+<li><p>Gesamtfruchtbarkeit: (Anzhal Kinder), absolutskaliert</p></li>
+<li><p>Bevölkerungsanteil: verhältnisskaliert (Prozent)</p></li>
+</ul>
+<p><strong>(d) Sind die auf der linken Seite der Grafik angegeben Zeiträume die Ausprägungen eines ordinal-, nominal- oder intervallskalierten Merkmals? Begründen Sie Ihre Antwort kurz.</strong></p>
+<p>ordinalskaliert: in Form von Intervallen und hat Ordnung.</p>
+<p>(Alternativ: intervallskaliert, da die Intervalle gleich groß sind und die Differenz ist einigermaßen interpretierbar. – nicht zu empfehlen)</p>
+<p><strong>(e) Was für eine Art von Farbskala wurde in der Grafik verwendet? Welche Art von Farbskala wäre hier eventuell besser geeignet und warum?</strong></p>
+<ul>
+<li><p>qualitative Farbskala</p></li>
+<li><p>besser: sequentielle Farbskala, da die Farben (Zeitraum) eine Ordnung haben.</p></li>
+</ul>
+<p><strong>(f) Welche “Geometrie” wird hier zur Darstellung benutzt? Geben Sie für alle in der Grafik gezeigten Merkmale die verwendeten ästhetischen Zuordnungen an.</strong></p>
+<ul>
+<li>Geometrien: Linie bzw. Treppenfunktion</li>
+</ul>
+<p>Ästhetische Zuordnungen:</p>
+<ul>
+<li><p>Zeitraum: Farbe</p></li>
+<li><p>Bevölkerungsanteil: x-Koordinate</p></li>
+<li><p>Gesamtfruchtbarkeitsrate (TFR): y-Koordinate</p></li>
+</ul>
+<p><strong>(g) Welche ästhetischen Eigenschaften welcher Geometrien würden Sie für welche Merkmale verwenden, um in einer wohlüberlegten statistischen Grafik auf Basis dieser Daten die zeitlichen Entwicklungen der Gesamtfruchtbarkeitsraten zwischen ausgewählten Ländern einfach vergleichbar zu machen?</strong></p>
+<p><em>Bonus: Welche ggplot2-Befehle produzieren eine solche Grafik?</em></p>
+<ul>
+<li>Geometrien: Linie</li>
+</ul>
+<p>Ästhetische Zuordnungen:</p>
+<ul>
+<li><p>Zeitraum: x-Koordinate</p></li>
+<li><p>Gesamtfruchtbarkeitsrate (TFR): y-Koordinate</p></li>
+<li><p>Land: Farbe</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> fertility_gini, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> tfr, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>(h) Betrachten Sie die in der Grafik in rot eingezeichete Linie. Stellen Sie sich vor, wir vertauschen die horizontalen und vertikalen Achsen der Grafik durch eine Rotation um 90° den Uhrzeigersinn. Wäre die dadurch entstehende Funktion äquivalent zur empirischen Verteilungsfunktion der Gesamtfruchtbarkeitsraten aller Länder der Erde im angegebenen Zeitraum? Begründen Sie Ihre Antwort.</strong></p>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="flipped-fertility-gini.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Umgedrehte Grafik</figcaption>
+</figure>
+</div>
+</div>
+<p>Nein, die Funktion ist keine ECDF:</p>
+<ul>
+<li><p>x-Achse: die Zahlen gehen rückwärts, von 8 bis 1.</p></li>
+<li><p>y-Achse: steht nicht für Anteil der UE, sondern für den Anteil der Weltbevölkerung.</p></li>
+</ul>
+</section>
+<section id="aufgabe-3" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h2>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="stat-grammargraphics-grandslam-fig1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Grand Slam Matches</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>(a) Beschreiben Sie die Datengrundlage dieser Grafik. Was sind die Untersuchungseinheiten, Beobachtungen, Merkmale? Welche Erhebungsart liegt hier vor?</strong></p>
+<p>UE: Tennisprofis</p>
+<p>Merkmale:</p>
+<ul>
+<li><p>Alter</p></li>
+<li><p>Geschlecht</p></li>
+<li><p>Anzahl der Grand Slam Matches</p></li>
+<li><p>optional: Name</p></li>
+</ul>
+<p>Erhebungsart:</p>
+<ul>
+<li><p>Vollerhebung,</p></li>
+<li><p>Längsschnittdaten (mehrere Beobachtungen mit mehreren Merkmalen pro UE.)</p></li>
+</ul>
+<p><strong>(b) Analysieren Sie diese Grafik formal mit den Begriffen der in der Vorlesung eingeführten “Grammar of Graphics” - Welche ästhetischen Mappings werden hier wie verwendet? Welche Geometrien, Skalen, etc. werden hier wie verwendet?</strong></p>
+<ul>
+<li>Geometrien: Linien</li>
+</ul>
+<p>Ästhetische Mappings:</p>
+<ul>
+<li><p>Alter: x-Koordinate / horizontal</p></li>
+<li><p>Anzahl der Grand Slam Matches: y-Koordinate / vertikal</p></li>
+<li><p>Geschlecht (+ Name): Farbe</p></li>
+</ul>
+<p>Skalen:</p>
+<ul>
+<li><p>kartesisches Koordinatensystem</p></li>
+<li><p>y-Achse: 0 bis ca. 300</p></li>
+<li><p>x-Achse: 0 bis ca. 50</p></li>
+</ul>
+<p><strong>(c) Inwiefern weicht die Grafik von der in der Vorlesung definierten einfachen Grammatik ab?</strong></p>
+<ul>
+<li><p>Die Grafik hat keine Legende. Die Farben werden nur implizit erklärt (als Bestandteil der Überschrift).</p></li>
+<li><p>Die Grafik hat zwei Farbskalen.</p></li>
+<li><p>Die Text-Annotationen sind direkt in der Grafik enthalten.</p></li>
+</ul>
+<p><strong>(d) Sie interessieren sich besonders dafür, wie bzw. ob sich die Karriereverläufe weiblicher und männlicher Tennisprofis unterscheiden. Welche Elemente der Darstellung würden Sie wie verändern, entfernen oder hinzufügen um eine neue Grafik zu erzeugen, die diese Frage besser beantworten kann?</strong></p>
+<p>Problem: <strong>Overplotting</strong></p>
+<p>Was bedeutet das?</p>
+<p>Definition: Es tritt auf, wenn zu viele Datenpunkte auf einem kleinen Bereich eines Diagramms gezeichnet werden, sodass einzelne Punkte nicht mehr klar unterscheidbar sind und die wahren Datenstrukturen oder Muster dadurch verdeckt werden.</p>
+<p><strong>Lösung 1</strong></p>
+<ul>
+<li><p>Facettierung nach Geschlecht</p></li>
+<li><p>Keine Hervohebung der einzelnen Spieler</p></li>
+<li><p>(optional) Transparanz der einzelnen Linien anpassen und Linien für Mittelwert hinzufügen.</p></li>
+</ul>
+<div style="text-align: center">
+<p><img src="GSM1.png" class="img-fluid" alt="GSM1 ohne Mittelwert"> <img src="GSM2.png" class="img-fluid" alt="GSM3 mit Mittelwert"></p>
+</div>
+<p><strong>Lösung 2 (nicht zu empfehlen)</strong></p>
+<ul>
+<li>Eine Farbskala in einer Grafik, bezeichnet durch zwei Mittelwertlinien.</li>
+</ul>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GSM3.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">GSM2 mit nur Mittelwert</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Habt ihr sonst noch Lösungsvorschläge?</strong></p>
+</section>
+<section id="aufgabe-2" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
+<table class="table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Labels</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>sex</strong></td>
+<td style="text-align: left;">Geschlecht</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1 = männlich</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2 = weiblich</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>sleep_hours_work</strong></td>
+<td style="text-align: left;">Anzahl der Stunden im Schlafen (Woche)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>sleep_hours_wkend</strong></td>
+<td style="text-align: left;">Anzahl der Stunden im Schlafen (Wochenende)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>snore_freq</strong></td>
+<td style="text-align: left;">Häufigkeit vom Schnarchen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">mit 4 Kategorien:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0 = nie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1 = selten</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2 = gelegentlich</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3 = häufig</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>snort_freq</strong></td>
+<td style="text-align: left;">Häufigkeit von Apnoe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">mit 4 Kategorien:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0 = nie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1 = selten</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2 = gelegentlich</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3 = häufig</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>sleep_freq_day</strong></td>
+<td style="text-align: left;">Häufigkeit der schläfrigen Gefühle im Tag</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">mit 5 Kategorien:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0 = nie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1 = selten</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2 = manchmal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3 = oft</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">4 = fast immer</td>
+</tr>
+</tbody>
+</table>
+<section id="vorbereitung" class="level3">
+<h3 class="anchored" data-anchor-id="vorbereitung">Vorbereitung</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten einlesen</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sleep <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"nhanes_sleep1718.csv"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Wertelabels zuweisen</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>wertelabels <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">snore_freq =</span> <span class="fu">c</span>(<span class="st">"nie"</span>, <span class="st">"selten"</span>, <span class="st">"gelegentlich"</span>, <span class="st">"häufig"</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">snort_freq =</span> <span class="fu">c</span>(<span class="st">"nie"</span>, <span class="st">"selten"</span>, <span class="st">"gelegentlich"</span>, <span class="st">"häufig"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">sleepy_freq_day =</span> <span class="fu">c</span>(<span class="st">"nie"</span>, <span class="st">"selten"</span>, <span class="st">"manchmal"</span>, <span class="st">"oft"</span>, <span class="st">"fast immer"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Gehe jede Variable durch und weise die Wertelabels zu</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> <span class="fu">names</span>(wertelabels)) {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Beginne bei 0 für die Levels, da die Zählung der Codes bei 0 beginnt</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Benutze "ordered" für ordinale Variablen</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  sleep[[variable]] <span class="ot">&lt;-</span> <span class="fu">ordered</span>(sleep[[variable]], </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                              <span class="at">levels =</span> <span class="dv">0</span><span class="sc">:</span>(<span class="fu">length</span>(wertelabels[[variable]]) <span class="sc">-</span> <span class="dv">1</span>), </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                              <span class="at">labels =</span> wertelabels[[variable]])</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>sleep<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(sleep<span class="sc">$</span>sex, </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"männlich"</span>, <span class="st">"weiblich"</span>))</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(sleep))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">ID</th>
+<th style="text-align: left;">sex</th>
+<th style="text-align: right;">sleep_hours_work</th>
+<th style="text-align: right;">sleep_hours_wkend</th>
+<th style="text-align: left;">snore_freq</th>
+<th style="text-align: left;">snort_freq</th>
+<th style="text-align: left;">sleepy_freq_day</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">93705</td>
+<td style="text-align: left;">weiblich</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: left;">gelegentlich</td>
+<td style="text-align: left;">nie</td>
+<td style="text-align: left;">nie</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">93706</td>
+<td style="text-align: left;">männlich</td>
+<td style="text-align: right;">10.5</td>
+<td style="text-align: right;">11.5</td>
+<td style="text-align: left;">selten</td>
+<td style="text-align: left;">nie</td>
+<td style="text-align: left;">selten</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">93708</td>
+<td style="text-align: left;">weiblich</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: left;">nie</td>
+<td style="text-align: left;">nie</td>
+<td style="text-align: left;">manchmal</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">93709</td>
+<td style="text-align: left;">weiblich</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">6.5</td>
+<td style="text-align: left;">selten</td>
+<td style="text-align: left;">nie</td>
+<td style="text-align: left;">selten</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">93711</td>
+<td style="text-align: left;">männlich</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">gelegentlich</td>
+<td style="text-align: left;">selten</td>
+<td style="text-align: left;">oft</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">93712</td>
+<td style="text-align: left;">männlich</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">selten</td>
+<td style="text-align: left;">selten</td>
+<td style="text-align: left;">manchmal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="a-häufigkeitstabelle-und-ein-säulendiagramm" class="level3">
+<h3 class="anchored" data-anchor-id="a-häufigkeitstabelle-und-ein-säulendiagramm">a) Häufigkeitstabelle und ein Säulendiagramm</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>table_sleepy <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(sleep<span class="sc">$</span>sleepy_freq_day))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>table_sleepy <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="fu">kable</span>() <span class="co"># pipeline operator: |&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">nie</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">selten</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">manchmal</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">oft</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fast immer</td>
+<td style="text-align: right;">0.09</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(table_sleepy, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"Relative Häufigkeiten von 'sleepy_freq_day'"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"sleepy_freq_day"</span>, <span class="at">ylab=</span><span class="st">"Relative Häufigkeit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Stat1_Ue6_files/figure-html/a.png" class="img-fluid">-1.png){fig-align=‘center’ width=672}</p>
+</div>
+</div>
+</section>
+<section id="b-analyse-mit-geschlecht" class="level3">
+<h3 class="anchored" data-anchor-id="b-analyse-mit-geschlecht">b) Analyse mit Geschlecht</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stichprobe nach Geschlecht unterteilen und Größe ermitteln</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>maenner <span class="ot">&lt;-</span> <span class="fu">subset</span>(sleep, sex <span class="sc">==</span> <span class="st">"männlich"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>frauen <span class="ot">&lt;-</span> <span class="fu">subset</span>(sleep, sex <span class="sc">==</span> <span class="st">"weiblich"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Anzahl der männlichen Befragten:"</span>, <span class="fu">nrow</span>(maenner), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anzahl der männlichen Befragten: 2992 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Anzahl der weiblichen Befragten:"</span>, <span class="fu">nrow</span>(frauen), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anzahl der weiblichen Befragten: 3169 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># oder:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">table</span>(sleep<span class="sc">$</span>sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">männlich</td>
+<td style="text-align: right;">2992</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weiblich</td>
+<td style="text-align: right;">3169</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Säulendiagramm für die relativen Häufigkeiten von sleepy_freq_day für weibliche Befragte</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>frauen_sleepy <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(<span class="fu">table</span>(frauen<span class="sc">$</span>sleepy_freq_day))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># base-R plot</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(frauen_sleepy, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"Relative Häufigkeiten von 'sleepy_freq_day' bei Frauen"</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"sleepy_freq_day"</span>, <span class="at">ylab=</span><span class="st">"relative Häufigkeit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Stat1_Ue6_files/figure-html/b.png" class="img-fluid">-1.png){fig-align=‘center’ width=672}</p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mit ggplot2: (weight = 1/n damit rel. häufigkeiten geplotttet werden)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(frauen) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> sleepy_freq_day, <span class="at">weight =</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">nrow</span>(frauen))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Stat1_Ue6_files/figure-html/b.png" class="img-fluid">-2.png){fig-align=‘center’ width=672}</p>
+</div>
+</div>
+</section>
+</section>
+<section id="c-kritik-an-grafik" class="level2">
+<h2 class="anchored" data-anchor-id="c-kritik-an-grafik">c) Kritik an Grafik</h2>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="apnoebeispiel.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Beispielsgrafik</figcaption>
+</figure>
+</div>
+</div>
+<section id="problemstellung" class="level4">
+<h4 class="anchored" data-anchor-id="problemstellung">Problemstellung:</h4>
+<p>Schwierigkeit beim Vergleich von Apnoe-Häufigkeiten zwischen Männern und Frauen <strong>aufgrund unterschiedlicher Anzahl an Personen, die nie bzw öfter als nie an Apnoe leiden.</strong></p>
+<p>Beispielsweise sind die Angaben unter der Kategorie “häufig” auf dem Diagramm nahezu unvergleichbar klein.</p>
+</section>
+<section id="stapeldiagramm-mit-absoluten-häufigkeiten-beispiel" class="level4">
+<h4 class="anchored" data-anchor-id="stapeldiagramm-mit-absoluten-häufigkeiten-beispiel">Stapeldiagramm mit absoluten Häufigkeiten (Beispiel):</h4>
+<ul>
+<li>Ungenau für den Vergleich, da unterschiedliche Personenzahlen die Interpretation erschweren.</li>
+<li>Kategorie “häufig” kaum vergleichbar wegen geringer sichtbarer Unterschiede.</li>
+</ul>
+</section>
+<section id="säulendiagramm-mit-nebeneinander-angeordneten-säulen" class="level4">
+<h4 class="anchored" data-anchor-id="säulendiagramm-mit-nebeneinander-angeordneten-säulen">Säulendiagramm mit nebeneinander angeordneten Säulen:</h4>
+<ul>
+<li><p>Bessere Darstellung der absoluten Häufigkeiten durch direkten Vergleich an derselben Achse.</p></li>
+<li><p>Ermöglicht den Vergleich der Anzahl von Männern und Frauen für jede Apnoe-Häufigkeit.</p></li>
+</ul>
+</section>
+<section id="empfehlung-100-stapeldiagramm" class="level4">
+<h4 class="anchored" data-anchor-id="empfehlung-100-stapeldiagramm">Empfehlung: 100%-Stapeldiagramm:</h4>
+<ul>
+<li><p>Ideal für die Fragestellung, da es die prozentualen Unterschiede in jeder Kategorie unabhängig von der Gesamtzahl der Beobachtungen zeigt.</p></li>
+<li><p>Erleichtert den direkten Vergleich der Geschlechter innerhalb jeder Kategorie.</p></li>
+</ul>
+</section>
+</section>
+<section id="d-optimale-grafik" class="level2">
+<h2 class="anchored" data-anchor-id="d-optimale-grafik">d) Optimale Grafik</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Version 1: bedingten Hfgk von Geschlecht|Schnarchen</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep) <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># gestapeltes Balkendiagramm der bedingten Hfgk von Geschlecht|Schnarchen</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> snort_freq, <span class="at">fill =</span> sex), <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Referenzlinie: insgesamter Anteil der Frauen:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(sleep<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"weiblich"</span>), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># schöne Labels &amp; captions:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Häufigkeit von Apnoe"</span>, <span class="at">y =</span> <span class="st">"Prozent"</span>, <span class="at">fill =</span> <span class="st">"Geschlecht"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Schwarze Linie: Gesamtanteil Frauen in Stichprobe.</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="st">                  Datenquelle: NHANES 2017/18"</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Stat1_Ue6_files/figure-html/optimal-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Version 2 (besser): bedingten Hfgk von Schnarchen|Geschlecht</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep) <span class="sc">+</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># gestapeltes Balkendiagramm der bedingten Hfgk von Schnarchen|Geschlecht</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> snort_freq, <span class="at">x =</span> sex), <span class="at">alpha =</span> .<span class="dv">8</span>, <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># snort_freq ist ordinal, also *sequentielle* farbskala: </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># horizontale balken mit horizontalen textlabels sind besser lesbar:</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># schöne Labels &amp; captions:</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Häufigkeit von Apnoe"</span>, <span class="at">y =</span> <span class="st">"Prozent"</span>, <span class="at">x =</span> <span class="st">"Geschlecht"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Datenquelle: NHANES 2017/18"</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Stat1_Ue6_files/figure-html/optimal-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Männliche Befragte weisen höhere Anteile an “selten”, “gelegentlich” und “häufig” Antworten auf, während weibliche Befragte mehr “nie” Antworten berichten. Dies deutet darauf hin, dass unter den Befragten männliche Personen tendenziell häufiger über Apnoe-Episoden berichten als weibliche Personen.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
